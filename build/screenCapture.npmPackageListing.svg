@@ -1,0 +1,43 @@
+<svg height="638" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="638" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  0.  2017-04-07 21:41:29 +0000    94512 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-07 21:41:29 +0000     1060 bytes  LICENSE</tspan>
+<tspan x="10" y="58">  2.  2017-04-07 21:41:29 +0000     6995 bytes  README.md</tspan>
+<tspan x="10" y="74">  3.  2017-04-07 21:41:29 +0000      411 bytes  appveyor.yml</tspan>
+<tspan x="10" y="90">  4.  2017-04-07 21:41:29 +0000       64 bytes  index.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-07 21:41:29 +0000      803 bytes  lib/api-benchmark.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-07 21:41:29 +0000     5691 bytes  lib/benchmark-utils.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-07 21:41:29 +0000      590 bytes  lib/debug-helper.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-07 21:41:29 +0000      265 bytes  lib/format.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-07 21:41:29 +0000      724 bytes  lib/html-converter.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-07 21:41:29 +0000      796 bytes  lib/request-agent.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-07 21:41:29 +0000     2049 bytes  lib/request-handler.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-07 21:41:29 +0000      865 bytes  lib/results-handler.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-07 21:41:29 +0000     5418 bytes  lib/runner.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-07 21:41:29 +0000     1059 bytes  lib/sanitise.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-07 21:41:29 +0000      994 bytes  lib/settings.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-07 21:41:29 +0000     5510 bytes  lib/suites-manager.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-07 21:41:29 +0000      483 bytes  lib/timer.js</tspan>
+<tspan x="10" y="314"> 18.  2017-04-07 21:41:29 +0000     1048 bytes  lib/validator.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-07 21:41:29 +0000     2936 bytes  package.json</tspan>
+<tspan x="10" y="346"> 20.  2017-04-07 21:41:29 +0000    18456 bytes  templates/report.html</tspan>
+<tspan x="10" y="362"> 21.  2017-04-07 21:41:29 +0000     1706 bytes  test/acceptance/compare.js</tspan>
+<tspan x="10" y="378"> 22.  2017-04-07 21:41:29 +0000     1153 bytes  test/acceptance/html-converter.js</tspan>
+<tspan x="10" y="394"> 23.  2017-04-07 21:41:29 +0000     8293 bytes  test/acceptance/measure.js</tspan>
+<tspan x="10" y="410"> 24.  2017-04-07 21:41:29 +0000      596 bytes  test/fixtures/test-agent.js</tspan>
+<tspan x="10" y="426"> 25.  2017-04-07 21:41:29 +0000     1209 bytes  test/fixtures/test-data.js</tspan>
+<tspan x="10" y="442"> 26.  2017-04-07 21:41:29 +0000      878 bytes  test/index.js</tspan>
+<tspan x="10" y="458"> 27.  2017-04-07 21:41:29 +0000      409 bytes  test/unit/api-benchmark.js</tspan>
+<tspan x="10" y="474"> 28.  2017-04-07 21:41:29 +0000     2404 bytes  test/unit/benchmark-utils.js</tspan>
+<tspan x="10" y="490"> 29.  2017-04-07 21:41:29 +0000     1687 bytes  test/unit/debug-helper.js</tspan>
+<tspan x="10" y="506"> 30.  2017-04-07 21:41:29 +0000      841 bytes  test/unit/format.js</tspan>
+<tspan x="10" y="522"> 31.  2017-04-07 21:41:29 +0000     3322 bytes  test/unit/request-agent.js</tspan>
+<tspan x="10" y="538"> 32.  2017-04-07 21:41:29 +0000     2022 bytes  test/unit/request-handler.js</tspan>
+<tspan x="10" y="554"> 33.  2017-04-07 21:41:29 +0000     5932 bytes  test/unit/runner.js</tspan>
+<tspan x="10" y="570"> 34.  2017-04-07 21:41:29 +0000     1637 bytes  test/unit/sanitise.js</tspan>
+<tspan x="10" y="586"> 35.  2017-04-07 21:41:29 +0000     2538 bytes  test/unit/suites-manager.js</tspan>
+<tspan x="10" y="602"> 36.  2017-04-07 21:41:29 +0000      861 bytes  test/unit/timer.js</tspan>
+<tspan x="10" y="618"> 37.  2017-04-07 21:41:29 +0000     2807 bytes  test/unit/validator.js</tspan>
+</text>
+</svg>

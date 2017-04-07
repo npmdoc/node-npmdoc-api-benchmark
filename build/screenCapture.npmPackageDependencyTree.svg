@@ -1,0 +1,36 @@
+<svg height="526" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="526" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">3 megabytes installed</tspan>
+<tspan x="10" y="42"></tspan>
+<tspan x="10" y="58">node_modules</tspan>
+<tspan x="10" y="74">└─┬ api-benchmark@0.4.2 </tspan>
+<tspan x="10" y="90">  ├── give-me@0.1.0 </tspan>
+<tspan x="10" y="106">  ├─┬ superagent@2.0.0 </tspan>
+<tspan x="10" y="122">  │ ├── component-emitter@1.2.1 </tspan>
+<tspan x="10" y="138">  │ ├── cookiejar@2.1.1 </tspan>
+<tspan x="10" y="154">  │ ├─┬ debug@2.6.3 </tspan>
+<tspan x="10" y="170">  │ │ └── ms@0.7.2 </tspan>
+<tspan x="10" y="186">  │ ├── extend@3.0.0 </tspan>
+<tspan x="10" y="202">  │ ├─┬ form-data@1.0.0-rc4 </tspan>
+<tspan x="10" y="218">  │ │ ├── async@1.5.2 </tspan>
+<tspan x="10" y="234">  │ │ ├─┬ combined-stream@1.0.5 </tspan>
+<tspan x="10" y="250">  │ │ │ └── delayed-stream@1.0.0 </tspan>
+<tspan x="10" y="266">  │ │ └─┬ mime-types@2.1.15 </tspan>
+<tspan x="10" y="282">  │ │   └── mime-db@1.27.0 </tspan>
+<tspan x="10" y="298">  │ ├── formidable@1.1.1 </tspan>
+<tspan x="10" y="314">  │ ├── methods@1.1.2 </tspan>
+<tspan x="10" y="330">  │ ├── mime@1.3.4 </tspan>
+<tspan x="10" y="346">  │ ├── qs@6.4.0 </tspan>
+<tspan x="10" y="362">  │ ├─┬ readable-stream@2.2.8 </tspan>
+<tspan x="10" y="378">  │ │ ├── buffer-shims@1.0.0 </tspan>
+<tspan x="10" y="394">  │ │ ├── core-util-is@1.0.2 </tspan>
+<tspan x="10" y="410">  │ │ ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="426">  │ │ ├── isarray@1.0.0 </tspan>
+<tspan x="10" y="442">  │ │ ├── process-nextick-args@1.0.7 </tspan>
+<tspan x="10" y="458">  │ │ ├── string_decoder@1.0.0 </tspan>
+<tspan x="10" y="474">  │ │ └── util-deprecate@1.0.2 </tspan>
+<tspan x="10" y="490">  │ └── reduce-component@1.0.1 </tspan>
+<tspan x="10" y="506">  └── underscore@1.8.3</tspan>
+</text>
+</svg>

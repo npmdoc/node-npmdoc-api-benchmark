@@ -1,0 +1,1524 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://www.api-benchmark.com/"
+
+    >api-benchmark (v0.4.2)</a>
+</h1>
+<h4>A simple nodejs tool to measure and compare performances of api services</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark">module api-benchmark</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.compare">
+            function <span class="apidocSignatureSpan">api-benchmark.</span>compare
+            <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.getHtml">
+            function <span class="apidocSignatureSpan">api-benchmark.</span>getHtml
+            <span class="apidocSignatureSpan">(input, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.measure">
+            function <span class="apidocSignatureSpan">api-benchmark.</span>measure
+            <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>benchmark_utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>html_converter</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>request_handler</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>sanitise</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>validator</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark.benchmark_utils">module api-benchmark.benchmark_utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.cycleMessage">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>cycleMessage
+            <span class="apidocSignatureSpan">(benchmark)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getAverage">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getAverage
+            <span class="apidocSignatureSpan">(benchmarks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getBenchmarkAverage">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getBenchmarkAverage
+            <span class="apidocSignatureSpan">(benchmark, benchmarkName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getBenchmarksAverage">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getBenchmarksAverage
+            <span class="apidocSignatureSpan">(benchmarks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getDeviation">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getDeviation
+            <span class="apidocSignatureSpan">(variance)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getFieldAverage">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getFieldAverage
+            <span class="apidocSignatureSpan">(benchmarks, propertyName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getHz">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getHz
+            <span class="apidocSignatureSpan">(singleMean)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getMean">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getMean
+            <span class="apidocSignatureSpan">(samples)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getMoe">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getMoe
+            <span class="apidocSignatureSpan">(samples, sem)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getPercentile">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getPercentile
+            <span class="apidocSignatureSpan">(samples, ptile)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getRelevantFields">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getRelevantFields
+            <span class="apidocSignatureSpan">(benchmark)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getRme">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getRme
+            <span class="apidocSignatureSpan">(moe, mean)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getSem">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getSem
+            <span class="apidocSignatureSpan">(samples, deviation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getSingleMean">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getSingleMean
+            <span class="apidocSignatureSpan">(mean, concurrencyLevel)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getStats">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getStats
+            <span class="apidocSignatureSpan">(benchmarks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getSuccessful">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getSuccessful
+            <span class="apidocSignatureSpan">(benchmarks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.getVariance">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getVariance
+            <span class="apidocSignatureSpan">(samples, mean)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.benchmark_utils.sort">
+            function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>sort
+            <span class="apidocSignatureSpan">(benchmarks)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark.html_converter">module api-benchmark.html_converter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.html_converter.getHtml">
+            function <span class="apidocSignatureSpan">api-benchmark.html_converter.</span>getHtml
+            <span class="apidocSignatureSpan">(input, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark.request_handler">module api-benchmark.request_handler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.request_handler.make">
+            function <span class="apidocSignatureSpan">api-benchmark.request_handler.</span>make
+            <span class="apidocSignatureSpan">(req, suite, suiteName, requestAgent, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.request_handler.setup">
+            function <span class="apidocSignatureSpan">api-benchmark.request_handler.</span>setup
+            <span class="apidocSignatureSpan">(suiteName, suiteHref, suite, requestAgent)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark.sanitise">module api-benchmark.sanitise</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.sanitise.endpoint">
+            function <span class="apidocSignatureSpan">api-benchmark.sanitise.</span>endpoint
+            <span class="apidocSignatureSpan">(endpointName, endpoint)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.sanitise.initialInput">
+            function <span class="apidocSignatureSpan">api-benchmark.sanitise.</span>initialInput
+            <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.sanitise.options">
+            function <span class="apidocSignatureSpan">api-benchmark.sanitise.</span>options
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark.validator">module api-benchmark.validator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.validator.checkCallback">
+            function <span class="apidocSignatureSpan">api-benchmark.validator.</span>checkCallback
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.validator.checkEndpoints">
+            function <span class="apidocSignatureSpan">api-benchmark.validator.</span>checkEndpoints
+            <span class="apidocSignatureSpan">(endpoints)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.validator.checkServices">
+            function <span class="apidocSignatureSpan">api-benchmark.validator.</span>checkServices
+            <span class="apidocSignatureSpan">(services)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark" id="apidoc.module.api-benchmark">module api-benchmark</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.compare" id="apidoc.element.api-benchmark.compare">
+        function <span class="apidocSignatureSpan">api-benchmark.</span>compare
+        <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compare = function (services, endpoints, options, callback){
+
+  var parameters = sanitise.initialInput(services, endpoints, options, callback),
+      suites = new SuitesManager(superagent, new DebugHelper());
+
+  suites.setOptions(parameters.options)
+        .addEndpoints(parameters.endpoints)
+        .addServices(parameters.services)
+        .onBenchResults(parameters.callback)
+        .start();
+
+  return suites;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var services = {
+  server1: &#x22;http://myserver:myport/mypath/&#x22;,
+  server2: &#x22;http://myserver2:myport2/mypath2/&#x22;,
+};
+
+var routes = { route1: &#x27;route1&#x27;, route2: &#x27;route2&#x27; };
+
+apiBenchmark.<span class="apidocCodeKeywordSpan">compare</span>(services, routes, function(err, results){
+  console.log(results);
+  // displays some stats, including the winner!
+});
+```
+
+All the Http verbs and headers are supported.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.getHtml" id="apidoc.element.api-benchmark.getHtml">
+        function <span class="apidocSignatureSpan">api-benchmark.</span>getHtml
+        <span class="apidocSignatureSpan">(input, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHtml = function (input, options, callback){
+
+  if(_.isFunction(options)){
+    callback = options;
+    options = {};
+  }
+
+  fs.readFile(path.join(__dirname, &#x27;../templates/report.html&#x27;), &#x27;utf-8&#x27;, function(err, template){
+
+    if(err) {
+      return callback(err);
+			}
+
+    var obj = {
+      benchmark: input,
+      info: {
+        date: new Date(),
+        apiName: _.keys(input)[0]
+      }
+    };
+
+    var templateWithData = template.replace(&#x27;{{ data }}&#x27;, JSON.stringify(obj).replace(/&#x3c;\/script&#x3e;/g, &#x27;&#x3c;/scr&#x22;+&#x22;ipt&#x3e;&#x27;));
+
+    callback(null, templateWithData);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var service = {
+  server1: &#x22;http://myserver:myport/mypath/&#x22;
+};
+
+var routes = { route1: &#x27;route1&#x27;, route2: &#x27;route2&#x27; };
+
+apiBenchmark.measure(service, routes, function(err, results){
+  apiBenchmark.<span class="apidocCodeKeywordSpan">getHtml</span>(results, function(error, html){
+    console.log(html);
+    // now save it yourself to a file and enjoy
+  });
+});
+```
+
+### Route object
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.measure" id="apidoc.element.api-benchmark.measure">
+        function <span class="apidocSignatureSpan">api-benchmark.</span>measure
+        <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">measure = function (services, endpoints, options, callback){
+
+  var parameters = sanitise.initialInput(services, endpoints, options, callback),
+      suites = new SuitesManager(superagent, new DebugHelper());
+
+  suites.setOptions(parameters.options)
+        .addEndpoints(parameters.endpoints)
+        .addServices(parameters.services)
+        .onBenchResults(parameters.callback)
+        .start();
+
+  return suites;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var service = {
+  server1: &#x22;http://myserver:myport/mypath/&#x22;
+};
+
+var routes = { route1: &#x27;route1&#x27;, route2: &#x27;route2&#x27; };
+
+apiBenchmark.<span class="apidocCodeKeywordSpan">measure</span>(service, routes, function(err, results){
+  console.log(results);
+  // displays some stats!
+});
+```
+
+### compare(services, [routes](#route-object), [[options](#options-object), ] callback)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark.benchmark_utils" id="apidoc.module.api-benchmark.benchmark_utils">module api-benchmark.benchmark_utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.cycleMessage" id="apidoc.element.api-benchmark.benchmark_utils.cycleMessage">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>cycleMessage
+        <span class="apidocSignatureSpan">(benchmark)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cycleMessage = function (benchmark) {
+
+  var formatNumber = function(number) {
+    number = String(number).split(&#x27;.&#x27;);
+    return number[0].replace(/(?=(?:\d{3})+$)(?!\b)/g, &#x27;,&#x27;) + (number[1] ? &#x27;.&#x27; + number[1] : &#x27;&#x27;);
+  };
+
+  var hz = benchmark.hz,
+      stats = benchmark.stats,
+      size = stats.sample.length,
+      pm = &#x27;\xb1&#x27;;
+
+  return format(settings.successMessages.CYCLE_MESSAGE,
+                benchmark.name,
+                formatNumber(hz.toFixed(hz &#x3c; 100 ? 2 : 0)),
+                pm + stats.rme.toFixed(2),
+                size,
+                (size === 1 ? &#x27;&#x27; : &#x27;s&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    result.errors[settings.errorCodes.MAX_SINGLE_MEAN_EXCEEDED]=[];
+			}
+
+  result.errors[settings.errorCodes.MAX_SINGLE_MEAN_EXCEEDED].push(maxSingleMeanErr);
+}
+
+this.results.push(result);
+this.emit(&#x27;cycle&#x27;, benchmarkUtils.<span class="apidocCodeKeywordSpan">cycleMessage</span>(result));
+return step;
+  };
+
+  this.run = function(){
+var self = this;
+
+giveMe.sequence(_.map(this.steps, function(step){ return step.run; }), function(callbacks){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getAverage" id="apidoc.element.api-benchmark.benchmark_utils.getAverage">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getAverage
+        <span class="apidocSignatureSpan">(benchmarks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAverage = function (benchmarks){
+  return _.compose(benchmarkUtils.sort, benchmarkUtils.getSuccessful, benchmarkUtils.getBenchmarksAverage)(benchmarks);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+_.forEach(benchmarks, function(benchmark, k){
+  if(this.results[this.serviceNames[k]]){
+    this.results[this.serviceNames[k]][currentName] = benchmark;
+  }
+}, this);
+    },
+    get: function(){
+var averages = benchmarkUtils.<span class="apidocCodeKeywordSpan">getAverage</span>(this.results);
+
+if(averages.length &#x3e; 1){
+  this.results[averages[0].name].isFastest = true;
+  this.results[averages[averages.length - 1].name].isSlowest = true;
+}
+
+return this.results;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getBenchmarkAverage" id="apidoc.element.api-benchmark.benchmark_utils.getBenchmarkAverage">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getBenchmarkAverage
+        <span class="apidocSignatureSpan">(benchmark, benchmarkName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBenchmarkAverage = function (benchmark, benchmarkName){
+  var stats = benchmarkUtils.getStats(benchmark),
+      av = benchmarkUtils.getFieldAverage;
+
+  return {
+    name: benchmarkName,
+    stats: {
+      moe: av(stats, &#x27;moe&#x27;),
+      rme: av(stats, &#x27;rme&#x27;),
+      deviation: av(stats, &#x27;deviation&#x27;),
+      variance: av(stats, &#x27;variance&#x27;),
+      mean: av(stats, &#x27;mean&#x27;),
+      sem: av(stats, &#x27;sem&#x27;),
+      p75: av(stats, &#x27;p75&#x27;),
+      p95: av(stats, &#x27;p95&#x27;),
+      p99: av(stats, &#x27;p99&#x27;),
+      p999: av(stats, &#x27;p999&#x27;)
+    },
+    hz: av(benchmark, &#x27;hz&#x27;)
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      p999: av(stats, &#x27;p999&#x27;)
+    },
+    hz: av(benchmark, &#x27;hz&#x27;)
+  };
+},
+getBenchmarksAverage: function(benchmarks){
+  return  _.map(benchmarks, function(benchmark, benchmarkName){
+    return benchmarkUtils.<span class="apidocCodeKeywordSpan">getBenchmarkAverage</span>(benchmark, benchmarkName);
+  });
+},
+getFieldAverage: function(benchmarks, propertyName){
+  var valuesArray = _.pluck(benchmarks, propertyName);
+  return _.reduce(valuesArray, function(memo, num){
+    return memo + num;
+  }, 0) / valuesArray.length;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getBenchmarksAverage" id="apidoc.element.api-benchmark.benchmark_utils.getBenchmarksAverage">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getBenchmarksAverage
+        <span class="apidocSignatureSpan">(benchmarks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBenchmarksAverage = function (benchmarks){
+  return  _.map(benchmarks, function(benchmark, benchmarkName){
+    return benchmarkUtils.getBenchmarkAverage(benchmark, benchmarkName);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getDeviation" id="apidoc.element.api-benchmark.benchmark_utils.getDeviation">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getDeviation
+        <span class="apidocSignatureSpan">(variance)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDeviation = function (variance){
+  return Math.sqrt(variance);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  response: benchmark.response
+};
+
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.<span class="apidocCodeKeywordSpan">getDeviation</span>(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+stats.p999 = __.getPercentile(benchmark.stats.sample, 0.999);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getFieldAverage" id="apidoc.element.api-benchmark.benchmark_utils.getFieldAverage">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getFieldAverage
+        <span class="apidocSignatureSpan">(benchmarks, propertyName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getFieldAverage = function (benchmarks, propertyName){
+  var valuesArray = _.pluck(benchmarks, propertyName);
+  return _.reduce(valuesArray, function(memo, num){
+    return memo + num;
+  }, 0) / valuesArray.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getHz" id="apidoc.element.api-benchmark.benchmark_utils.getHz">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getHz
+        <span class="apidocSignatureSpan">(singleMean)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHz = function (singleMean){
+  return 1/singleMean;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  options: benchmark.options,
+  request: benchmark.request,
+  response: benchmark.response
+};
+
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.<span class="apidocCodeKeywordSpan">getHz</span>(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getMean" id="apidoc.element.api-benchmark.benchmark_utils.getMean">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getMean
+        <span class="apidocSignatureSpan">(samples)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMean = function (samples){
+  return _.reduce(samples, function(memo, num){
+    return memo + num;
+  }, 0) / samples.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  },
+  errors: benchmark.errors,
+  options: benchmark.options,
+  request: benchmark.request,
+  response: benchmark.response
+};
+
+stats.mean = __.<span class="apidocCodeKeywordSpan">getMean</span>(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getMoe" id="apidoc.element.api-benchmark.benchmark_utils.getMoe">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getMoe
+        <span class="apidocSignatureSpan">(samples, sem)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMoe = function (samples, sem){
+<span class="apidocCodeCommentSpan">  /**
+   * T-Distribution two-tailed critical values for 95% confidence
+   * http://www.itl.nist.gov/div898/handbook/eda/section3/eda3672.htm
+   */
+</span>  var tTable = {
+    &#x27;1&#x27;:  12.706,&#x27;2&#x27;:  4.303, &#x27;3&#x27;:  3.182, &#x27;4&#x27;:  2.776, &#x27;5&#x27;:  2.571, &#x27;6&#x27;:  2.447,
+    &#x27;7&#x27;:  2.365, &#x27;8&#x27;:  2.306, &#x27;9&#x27;:  2.262, &#x27;10&#x27;: 2.228, &#x27;11&#x27;: 2.201, &#x27;12&#x27;: 2.179,
+    &#x27;13&#x27;: 2.16,  &#x27;14&#x27;: 2.145, &#x27;15&#x27;: 2.131, &#x27;16&#x27;: 2.12,  &#x27;17&#x27;: 2.11,  &#x27;18&#x27;: 2.101,
+    &#x27;19&#x27;: 2.093, &#x27;20&#x27;: 2.086, &#x27;21&#x27;: 2.08,  &#x27;22&#x27;: 2.074, &#x27;23&#x27;: 2.069, &#x27;24&#x27;: 2.064,
+    &#x27;25&#x27;: 2.06,  &#x27;26&#x27;: 2.056, &#x27;27&#x27;: 2.052, &#x27;28&#x27;: 2.048, &#x27;29&#x27;: 2.045, &#x27;30&#x27;: 2.042,
+    &#x27;infinity&#x27;: 1.96
+  };
+
+  var critical = tTable[Math.round(samples.length - 1) || 1] || tTable.infinity;
+  return sem * critical;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.<span class="apidocCodeKeywordSpan">getMoe</span>(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+stats.p999 = __.getPercentile(benchmark.stats.sample, 0.999);
+
+result.stats = _.extend(result.stats, stats);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getPercentile" id="apidoc.element.api-benchmark.benchmark_utils.getPercentile">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getPercentile
+        <span class="apidocSignatureSpan">(samples, ptile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPercentile = function (samples, ptile){
+  var values = _.clone(samples).sort(function (a, b) { return a - b; }),
+      pos = ptile * (values.length + 1);
+
+  if (pos &#x3c; 1) {
+    return values[0];
+  } else if (pos &#x3e;= values.length) {
+    return values[values.length - 1];
+  } else {
+    var lower = values[Math.floor(pos) - 1];
+    var upper = values[Math.ceil(pos) - 1];
+
+    return lower + (pos - Math.floor(pos)) * (upper - lower);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.<span class="apidocCodeKeywordSpan">getPercentile</span>(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+stats.p999 = __.getPercentile(benchmark.stats.sample, 0.999);
+
+result.stats = _.extend(result.stats, stats);
+
+return result;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getRelevantFields" id="apidoc.element.api-benchmark.benchmark_utils.getRelevantFields">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getRelevantFields
+        <span class="apidocSignatureSpan">(benchmark)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRelevantFields = function (benchmark){
+
+  var __ = benchmarkUtils,
+      stats = {};
+
+  var result = {
+    name: benchmark.name,
+    href: benchmark.href,
+    stats: {
+      sample: benchmark.stats.sample
+    },
+    errors: benchmark.errors,
+    options: benchmark.options,
+    request: benchmark.request,
+    response: benchmark.response
+  };
+
+  stats.mean = __.getMean(benchmark.stats.sample);
+  stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+  result.hz = __.getHz(stats.singleMean);
+  stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+  stats.deviation = __.getDeviation(stats.variance);
+  stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+  stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+  stats.rme = __.getRme(stats.moe, stats.mean);
+  stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+  stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+  stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+  stats.p999 = __.getPercentile(benchmark.stats.sample, 0.999);
+
+  result.stats = _.extend(result.stats, stats);
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  };
+
+  this.addResult = function(step){
+step.stats.sample = _.filter(step.stats.sample, function(item){
+  return _.isNumber(item);
+});
+
+var result = benchmarkUtils.<span class="apidocCodeKeywordSpan">getRelevantFields</span>(_.pick(step, &#x27;name&#x27;, &#x27;href
+&#x27;, &#x27;stats&#x27;, &#x27;errors&#x27;, &#x27;options&#x27;, &#x27;request&#x27;, &#x27;response&#x27;)),
+				maxMeanErr,
+				maxSingleMeanErr;
+
+if(!!step.options.maxMean &#x26;&#x26; (result.stats.mean &#x3e; step.options.maxMean)){
+  maxMeanErr = {
+    code: settings.errorCodes.MAX_MEAN_EXCEEDED,
+    details: step.name,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getRme" id="apidoc.element.api-benchmark.benchmark_utils.getRme">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getRme
+        <span class="apidocSignatureSpan">(moe, mean)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRme = function (moe, mean){
+  return (moe / mean) * 100 || 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.<span class="apidocCodeKeywordSpan">getRme</span>(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+stats.p999 = __.getPercentile(benchmark.stats.sample, 0.999);
+
+result.stats = _.extend(result.stats, stats);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getSem" id="apidoc.element.api-benchmark.benchmark_utils.getSem">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getSem
+        <span class="apidocSignatureSpan">(samples, deviation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSem = function (samples, deviation){
+  return deviation / Math.sqrt(samples.length);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.<span class="apidocCodeKeywordSpan">getSem</span>(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+stats.p999 = __.getPercentile(benchmark.stats.sample, 0.999);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getSingleMean" id="apidoc.element.api-benchmark.benchmark_utils.getSingleMean">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getSingleMean
+        <span class="apidocSignatureSpan">(mean, concurrencyLevel)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSingleMean = function (mean, concurrencyLevel){
+  // Mean across all concurrent requests.
+  // Should represent the mean for each single request in a multi-concurrent context.
+
+  return mean/concurrencyLevel;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  errors: benchmark.errors,
+  options: benchmark.options,
+  request: benchmark.request,
+  response: benchmark.response
+};
+
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.<span class="apidocCodeKeywordSpan">getSingleMean</span>(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.getVariance(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getStats" id="apidoc.element.api-benchmark.benchmark_utils.getStats">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getStats
+        <span class="apidocSignatureSpan">(benchmarks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getStats = function (benchmarks){
+  return _.map(benchmarks, function(benchmark){
+    return benchmark.stats;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var _ = require(&#x27;underscore&#x27;);
+
+var benchmarkUtils = {
+  getAverage: function(benchmarks){
+return _.compose(benchmarkUtils.sort, benchmarkUtils.getSuccessful, benchmarkUtils.getBenchmarksAverage)(benchmarks);
+  },
+  getBenchmarkAverage: function(benchmark, benchmarkName){
+var stats = benchmarkUtils.<span class="apidocCodeKeywordSpan">getStats</span>(benchmark),
+    av = benchmarkUtils.getFieldAverage;
+
+return {
+  name: benchmarkName,
+  stats: {
+    moe: av(stats, &#x27;moe&#x27;),
+    rme: av(stats, &#x27;rme&#x27;),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getSuccessful" id="apidoc.element.api-benchmark.benchmark_utils.getSuccessful">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getSuccessful
+        <span class="apidocSignatureSpan">(benchmarks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSuccessful = function (benchmarks){
+  return _.filter(benchmarks, function(benchmark){
+    return isFinite(benchmark.hz);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.getVariance" id="apidoc.element.api-benchmark.benchmark_utils.getVariance">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>getVariance
+        <span class="apidocSignatureSpan">(samples, mean)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getVariance = function (samples, mean){
+  return _.reduce(samples, function(sum, x) {
+    return sum + Math.pow(x - mean, 2);
+  }, 0) / (samples.length - 1) || 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  request: benchmark.request,
+  response: benchmark.response
+};
+
+stats.mean = __.getMean(benchmark.stats.sample);
+stats.singleMean = __.getSingleMean(stats.mean, benchmark.options.concurrencyLevel);
+result.hz = __.getHz(stats.singleMean);
+stats.variance = __.<span class="apidocCodeKeywordSpan">getVariance</span>(benchmark.stats.sample, stats.mean);
+stats.deviation = __.getDeviation(stats.variance);
+stats.sem = __.getSem(benchmark.stats.sample, stats.deviation);
+stats.moe = __.getMoe(benchmark.stats.sample, stats.sem);
+stats.rme = __.getRme(stats.moe, stats.mean);
+stats.p75 = __.getPercentile(benchmark.stats.sample, 0.75);
+stats.p95 = __.getPercentile(benchmark.stats.sample, 0.95);
+stats.p99 = __.getPercentile(benchmark.stats.sample, 0.99);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.benchmark_utils.sort" id="apidoc.element.api-benchmark.benchmark_utils.sort">
+        function <span class="apidocSignatureSpan">api-benchmark.benchmark_utils.</span>sort
+        <span class="apidocSignatureSpan">(benchmarks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sort = function (benchmarks){
+  return _.sortBy(benchmarks, function(benchmark){
+    return benchmark.stats.mean + benchmark.stats.moe;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  &#x27;infinity&#x27;: 1.96
+};
+
+var critical = tTable[Math.round(samples.length - 1) || 1] || tTable.infinity;
+return sem * critical;
+  },
+  getPercentile: function(samples, ptile){
+var values = _.clone(samples).<span class="apidocCodeKeywordSpan">sort</span>(function (a, b) { return a - b; }),
+    pos = ptile * (values.length + 1);
+
+if (pos &#x3c; 1) {
+  return values[0];
+} else if (pos &#x3e;= values.length) {
+  return values[values.length - 1];
+} else {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark.html_converter" id="apidoc.module.api-benchmark.html_converter">module api-benchmark.html_converter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.html_converter.getHtml" id="apidoc.element.api-benchmark.html_converter.getHtml">
+        function <span class="apidocSignatureSpan">api-benchmark.html_converter.</span>getHtml
+        <span class="apidocSignatureSpan">(input, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHtml = function (input, options, callback){
+
+  if(_.isFunction(options)){
+    callback = options;
+    options = {};
+  }
+
+  fs.readFile(path.join(__dirname, &#x27;../templates/report.html&#x27;), &#x27;utf-8&#x27;, function(err, template){
+
+    if(err) {
+      return callback(err);
+			}
+
+    var obj = {
+      benchmark: input,
+      info: {
+        date: new Date(),
+        apiName: _.keys(input)[0]
+      }
+    };
+
+    var templateWithData = template.replace(&#x27;{{ data }}&#x27;, JSON.stringify(obj).replace(/&#x3c;\/script&#x3e;/g, &#x27;&#x3c;/scr&#x22;+&#x22;ipt&#x3e;&#x27;));
+
+    callback(null, templateWithData);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var service = {
+  server1: &#x22;http://myserver:myport/mypath/&#x22;
+};
+
+var routes = { route1: &#x27;route1&#x27;, route2: &#x27;route2&#x27; };
+
+apiBenchmark.measure(service, routes, function(err, results){
+  apiBenchmark.<span class="apidocCodeKeywordSpan">getHtml</span>(results, function(error, html){
+    console.log(html);
+    // now save it yourself to a file and enjoy
+  });
+});
+```
+
+### Route object
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark.request_handler" id="apidoc.module.api-benchmark.request_handler">module api-benchmark.request_handler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.request_handler.make" id="apidoc.element.api-benchmark.request_handler.make">
+        function <span class="apidocSignatureSpan">api-benchmark.request_handler.</span>make
+        <span class="apidocSignatureSpan">(req, suite, suiteName, requestAgent, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">make = function (req, suite, suiteName, requestAgent, callback){
+  requestAgent.make(req, function(err, response){
+
+    var res = !!response ? {
+      header: response.header,
+      statusCode: response.statusCode,
+      body: response.text,
+      type: response.type
+    } : false;
+
+    if(err &#x26;&#x26; !res){
+      var code = err.code || &#x27;Unknown&#x27;;
+
+      return callback({
+        code: code,
+        message: err.message || code
+      }, res);
+    }
+    else if(!!suite.endpoint.expectedStatusCode &#x26;&#x26; suite.endpoint.expectedStatusCode !== response.status) {
+      return callback({
+        code: settings.errorCodes.HTTP_STATUS_CODE_NOT_MATCHING,
+        message: format(settings.errorMessages.HTTP_STATUS_CODE_NOT_MATCHING, suite.endpoint.expectedStatusCode, response.status
+, suiteName)
+      }, res);
+			}
+    else {
+				callback(null, res);
+			}
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var format = require(&#x27;./format&#x27;);
+var settings = require(&#x27;./settings&#x27;);
+var _ = require(&#x27;underscore&#x27;);
+
+module.exports = {
+  make: function(req, suite, suiteName, requestAgent, callback){
+    requestAgent.<span class="apidocCodeKeywordSpan">make</span>(req, function(err, response){
+
+var res = !!response ? {
+  header: response.header,
+  statusCode: response.statusCode,
+  body: response.text,
+  type: response.type
+} : false;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.request_handler.setup" id="apidoc.element.api-benchmark.request_handler.setup">
+        function <span class="apidocSignatureSpan">api-benchmark.request_handler.</span>setup
+        <span class="apidocSignatureSpan">(suiteName, suiteHref, suite, requestAgent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (suiteName, suiteHref, suite, requestAgent){
+  var self = this,
+      req = _.extend(_.clone(suite.endpoint), { url: suiteHref }),
+      suiteOptions = {
+        expectedStatusCode: suite.endpoint.expectedStatusCode,
+        maxMean: suite.endpoint.maxMean,
+        maxSingleMean: suite.endpoint.maxSingleMean,
+        method: suite.endpoint.method
+      },
+      suiteRequest = {};
+
+  if(!!suite.endpoint.headers){
+    suiteRequest.headers = _.isFunction(suite.endpoint.headers) ? &#x27;Dynamic headers&#x27; : suite.endpoint.headers;
+		}
+
+  if(!!suite.endpoint.data){
+    suiteRequest.data = _.isFunction(suite.endpoint.data) ? &#x27;Dynamic data&#x27; : suite.endpoint.data;
+		}
+
+  if(!!suite.endpoint.query){
+    suiteRequest.query = _.isFunction(suite.endpoint.query) ? &#x27;Dynamic query&#x27; : suite.endpoint.query;
+  }
+
+  suite.runner.add(suiteName, suiteHref, suiteOptions, suiteRequest, function(done){
+    self.make(req, suite, suiteName, requestAgent, done);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  _.forEach(this.services, function(service, serviceName){
+    _.forEach(this.routes, function(route){
+
+      var routeHref = url.resolve(service, route.endpoint.route),
+          routeName = serviceName + &#x27;/&#x27; + route.name,
+          self = this;
+
+      requestHandler.<span class="apidocCodeKeywordSpan">setup</span>(routeName, routeHref, route, self.requestAgent);
+    }, this);
+  }, this);
+
+  return this;
+},
+handleErrors: function(route){
+  var self = this;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark.sanitise" id="apidoc.module.api-benchmark.sanitise">module api-benchmark.sanitise</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.sanitise.endpoint" id="apidoc.element.api-benchmark.sanitise.endpoint">
+        function <span class="apidocSignatureSpan">api-benchmark.sanitise.</span>endpoint
+        <span class="apidocSignatureSpan">(endpointName, endpoint)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">endpoint = function (endpointName, endpoint){
+  var output = _.clone(endpoint);
+
+  if(_.isString(output)) {
+    output = { route: output };
+		}
+
+  output.method = output.method || &#x27;get&#x27;;
+
+  return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if(!this.validate(validator.checkEndpoints, endpoints)) {
+    return this;
+			}
+
+  _.forEach(endpoints, function(endpoint, endpointName){
+    this.routes.push({
+      name: endpointName,
+      endpoint: sanitise.<span class="apidocCodeKeywordSpan">endpoint</span>(endpointName, endpoint),
+      runner: new Runner(this.options)
+    });
+  }, this);
+
+  return this;
+},
+addServices: function(services){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.sanitise.initialInput" id="apidoc.element.api-benchmark.sanitise.initialInput">
+        function <span class="apidocSignatureSpan">api-benchmark.sanitise.</span>initialInput
+        <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">initialInput = function (services, endpoints, options, callback){
+  var output = _.clone({
+    services: services,
+    endpoints: endpoints,
+    options: options,
+    callback: callback
+  });
+
+  if(_.isFunction(options)){
+    output.callback = options;
+    output.options = {};
+  }
+
+  return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.sanitise.options" id="apidoc.element.api-benchmark.sanitise.options">
+        function <span class="apidocSignatureSpan">api-benchmark.sanitise.</span>options
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options = function (options){
+  var output = options || {};
+
+ return _.extend(output, {
+    delay: output.delay || 0,
+    debug: output.debug || false,
+    maxTime: output.maxTime || 10,
+    minSamples: output.minSamples || 20,
+    maxConcurrentRequests: output.maxConcurrentRequests || 100,
+    runMode: output.runMode || &#x27;sequence&#x27;,
+    stopOnError: output.stopOnError !== undefined ? output.stopOnError : true
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+runNext: function(){
+  if(!!this.routes &#x26;&#x26; (this.routes.length) &#x3e; 0 &#x26;&#x26; !!this.routes[this.current]){
+    this.routes[this.current].runner.run();
+    this.current++;
+  }
+},
+setOptions: function(options){
+  this.options = sanitise.<span class="apidocCodeKeywordSpan">options</span>(options);
+
+  if(!this.options.debug) {
+    debugHelper.shutUp();
+			}
+
+  return this;
+},
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark.validator" id="apidoc.module.api-benchmark.validator">module api-benchmark.validator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.validator.checkCallback" id="apidoc.element.api-benchmark.validator.checkCallback">
+        function <span class="apidocSignatureSpan">api-benchmark.validator.</span>checkCallback
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkCallback = function (callback){
+  if(!callback || !_.isFunction(callback)){
+    throw new Error(settings.errorMessages.VALIDATION_CALLBACK);
+		}
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.validator.checkEndpoints" id="apidoc.element.api-benchmark.validator.checkEndpoints">
+        function <span class="apidocSignatureSpan">api-benchmark.validator.</span>checkEndpoints
+        <span class="apidocSignatureSpan">(endpoints)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkEndpoints = function (endpoints){
+  if(!endpoints || !_.isObject(endpoints) || _.isArray(endpoints) || _.keys(endpoints).length &#x3c; 1) {
+    return (settings.errorMessages.VALIDATION_ENDPOINTS);
+		}
+
+  var methods = _.map(endpoints, function(endpoint){
+    return _.isString(endpoint) ? &#x27;get&#x27; : (endpoint.method || &#x27;get&#x27;);
+  });
+
+  if(_.without(methods, &#x27;get&#x27;, &#x27;post&#x27;, &#x27;put&#x27;, &#x27;head&#x27;, &#x27;patch&#x27;, &#x27;delete&#x27;, &#x27;trace&#x27;, &#x27;options&#x27;).length &#x3e; 0) {
+    return (settings.errorMessages.VALIDATION_ENDPOINT_VERB);
+		}
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.validator.checkServices" id="apidoc.element.api-benchmark.validator.checkServices">
+        function <span class="apidocSignatureSpan">api-benchmark.validator.</span>checkServices
+        <span class="apidocSignatureSpan">(services)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkServices = function (services){
+  if(!services || !_.isObject(services) || _.isArray(services) || _.keys(services).length &#x3c; 1) {
+    return (settings.errorMessages.VALIDATION_SERVICES);
+		}
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
