@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/api-benchmark.png?downloads=true)](https://www.npmjs.com/package/api-benchmark)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-api-benchmark/build/screenCapture.buildNpmdoc.browser.%2Fhome%2Ftravis%2Fbuild%2Fnpmdoc%2Fnode-npmdoc-api-benchmark%2Ftmp%2Fbuild%2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-api-benchmark/build/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-api-benchmark/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-api-benchmark%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-api-benchmark/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-api-benchmark/build/screenCapture.npmPackageListing.svg)
 
