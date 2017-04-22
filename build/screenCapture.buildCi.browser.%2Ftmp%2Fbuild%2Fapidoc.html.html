@@ -83,6 +83,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>api_benchmark</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>benchmark_utils</span>
 
         </li>
@@ -108,6 +114,37 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">api-benchmark.</span>validator</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.api-benchmark.api_benchmark">module api-benchmark.api_benchmark</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.api_benchmark.compare">
+            function <span class="apidocSignatureSpan">api-benchmark.api_benchmark.</span>compare
+            <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.api_benchmark.getHtml">
+            function <span class="apidocSignatureSpan">api-benchmark.api_benchmark.</span>getHtml
+            <span class="apidocSignatureSpan">(input, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.api-benchmark.api_benchmark.measure">
+            function <span class="apidocSignatureSpan">api-benchmark.api_benchmark.</span>measure
+            <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+            </a>
 
         </li>
 
@@ -523,6 +560,147 @@ apiBenchmark.<span class="apidocCodeKeywordSpan">measure</span>(service, routes,
 
 
 
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.api-benchmark.api_benchmark" id="apidoc.module.api-benchmark.api_benchmark">module api-benchmark.api_benchmark</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.api_benchmark.compare" id="apidoc.element.api-benchmark.api_benchmark.compare">
+        function <span class="apidocSignatureSpan">api-benchmark.api_benchmark.</span>compare
+        <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compare = function (services, endpoints, options, callback){
+
+  var parameters = sanitise.initialInput(services, endpoints, options, callback),
+      suites = new SuitesManager(superagent, new DebugHelper());
+
+  suites.setOptions(parameters.options)
+        .addEndpoints(parameters.endpoints)
+        .addServices(parameters.services)
+        .onBenchResults(parameters.callback)
+        .start();
+
+  return suites;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var services = {
+  server1: "http://myserver:myport/mypath/",
+  server2: "http://myserver2:myport2/mypath2/",
+};
+
+var routes = { route1: 'route1', route2: 'route2' };
+
+apiBenchmark.<span class="apidocCodeKeywordSpan">compare</span>(services, routes, function(err, results){
+  console.log(results);
+  // displays some stats, including the winner!
+});
+```
+
+All the Http verbs and headers are supported.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.api_benchmark.getHtml" id="apidoc.element.api-benchmark.api_benchmark.getHtml">
+        function <span class="apidocSignatureSpan">api-benchmark.api_benchmark.</span>getHtml
+        <span class="apidocSignatureSpan">(input, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHtml = function (input, options, callback){
+
+  if(_.isFunction(options)){
+    callback = options;
+    options = {};
+  }
+
+  fs.readFile(path.join(__dirname, '../templates/report.html'), 'utf-8', function(err, template){
+
+    if(err) {
+      return callback(err);
+			}
+
+    var obj = {
+      benchmark: input,
+      info: {
+        date: new Date(),
+        apiName: _.keys(input)[0]
+      }
+    };
+
+    var templateWithData = template.replace('{{ data }}', JSON.stringify(obj).replace(/&lt;\/script&gt;/g, '&lt;/scr"+"ipt&gt;'));
+
+    callback(null, templateWithData);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var service = {
+  server1: "http://myserver:myport/mypath/"
+};
+
+var routes = { route1: 'route1', route2: 'route2' };
+
+apiBenchmark.measure(service, routes, function(err, results){
+  apiBenchmark.<span class="apidocCodeKeywordSpan">getHtml</span>(results, function(error, html){
+    console.log(html);
+    // now save it yourself to a file and enjoy
+  });
+});
+```
+
+### Route object
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.api-benchmark.api_benchmark.measure" id="apidoc.element.api-benchmark.api_benchmark.measure">
+        function <span class="apidocSignatureSpan">api-benchmark.api_benchmark.</span>measure
+        <span class="apidocSignatureSpan">(services, endpoints, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">measure = function (services, endpoints, options, callback){
+
+  var parameters = sanitise.initialInput(services, endpoints, options, callback),
+      suites = new SuitesManager(superagent, new DebugHelper());
+
+  suites.setOptions(parameters.options)
+        .addEndpoints(parameters.endpoints)
+        .addServices(parameters.services)
+        .onBenchResults(parameters.callback)
+        .start();
+
+  return suites;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var service = {
+  server1: "http://myserver:myport/mypath/"
+};
+
+var routes = { route1: 'route1', route2: 'route2' };
+
+apiBenchmark.<span class="apidocCodeKeywordSpan">measure</span>(service, routes, function(err, results){
+  console.log(results);
+  // displays some stats!
+});
+```
+
+### compare(services, [routes](#route-object), [[options](#options-object), ] callback)
+...</pre></li>
+    </ul>
 
 
 </div>
@@ -1392,7 +1570,23 @@ addServices: function(services){
 
   return output;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sanitise = require('./sanitise');
+var superagent = require('superagent');
+var SuitesManager = require('./suites-manager');
+
+var suites = {
+  start: function(services, endpoints, options, callback){
+
+var parameters = sanitise.<span class="apidocCodeKeywordSpan">initialInput</span>(services, endpoints, options, callback),
+    suites = new SuitesManager(superagent, new DebugHelper());
+
+suites.setOptions(parameters.options)
+      .addEndpoints(parameters.endpoints)
+      .addServices(parameters.services)
+      .onBenchResults(parameters.callback)
+      .start();
+...</pre></li>
     </ul>
 
 
